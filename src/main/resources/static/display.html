@@ -33,19 +33,31 @@
     </button>
 </div>
 <div id="uploadFunctionality">
-    <input id="fileupload" type="file" name="fileupload" />
+    <input id="fileupload" type="file" name="fileupload" accept="image/*">
     <button id="upload-button" onclick="uploadFile()"> Upload </button>
 </div>
 
 <script>
     async function uploadFile() {
-        let formData = new FormData();
-        formData.append("data", fileupload.files[0]);
-        await fetch('http://localhost:8080/photos', {
-            method: "POST",
-            body: formData
-        }).then(result => result.text())
-            .then(text => alert(text));
+        const fileInput = document.getElementById('fileupload');
+        if (fileInput.files.length === 0) {
+            alert('Please select an image to upload.');
+            return;
+        }
+
+        const imageFile = fileInput.files[0];
+        const imageUrl = URL.createObjectURL(imageFile);
+        const imgElement = new Image();
+        imgElement.src = imageUrl;
+        imgElement.height = 64;
+        imgElement.classList.add('draggable-image');
+        imgElement.draggable = true;
+        imgElement.ondragstart = function (event) {
+            drag(event);
+        };
+
+        document.getElementById('AssetsContainer').appendChild(imgElement);
+        fileInput.value = '';
     }
 
     function drag(event) {
@@ -63,8 +75,8 @@
         imgElement.src = imageUrl;
         imgElement.height = 64;
         imgElement.classList.add('draggable-image');
-        imgElement.style.left = (event.clientX - 32) + 'px'; // Adjust for image width
-        imgElement.style.top = (event.clientY - 32) + 'px';  // Adjust for image height
+        imgElement.style.left = (event.clientX - document.getElementById('ScrapbookContainer').getBoundingClientRect().left) - 32 + 'px';
+        imgElement.style.top = (event.clientY - document.getElementById('ScrapbookContainer').getBoundingClientRect().top) - 32 + 'px';
         document.getElementById('ScrapbookContainer').appendChild(imgElement);
     }
 </script>
