@@ -22,6 +22,11 @@ public class PhotosController {
         return "Hello World";
     }
 
+    @GetMapping("/displayphoto")
+    public String displayphoto() {
+        return "Here is an image";
+    }
+
     @GetMapping("/photos")
     public Collection<Photo> get() {
         return photosService.get();
