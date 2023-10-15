@@ -24,7 +24,7 @@ public class PhotosService {
     }
 
     public Photo remove(String id) {
-        return db.get(id);
+        return db.remove(id);
     }
 
     public Photo save(String fileName, String contentType, byte[] data) {

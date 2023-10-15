@@ -1,0 +1,45 @@
+body {
+    background-image: url("LightGreyTable.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+#Scrapbook {
+    /* border-style: solid;
+    border-width: 5px;
+    border-color: black; */
+
+    position: absolute;
+    top:0px;
+
+}
+#AssetsContainer {
+    border: 5px solid;
+    border-radius: 20px;
+    height: 512px;
+    width: 256px;
+    background-color: white;
+    box-shadow: 5px 5px 5px black;
+
+    position: relative;
+    left: 704px;
+}
+#AssetTitle {
+    padding-left: 104px;
+}
+#LeftArrow {
+    position: absolute;
+    top: 410px;
+    left: 128px;
+}
+#RightArrow {
+    position: absolute;
+    top: 410px;
+    left: 560px;
+}
+#uploadFunctionality {
+    position: absolute;
+    top: 496px;
+    left: 128px;
+}

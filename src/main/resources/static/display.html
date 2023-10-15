@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DigitalScrapBook</title>
+    <link rel="stylesheet" href="displayStyle.css">
+</head>
+<body>
+    <div id="ScrapbookContainer">
+        <img id="Scrapbook" src="Scrapbook.png" height="512">
+        <div id="AssetsContainer">
+            <h3 id="AssetTitle"><b>Assets</b></h3>
+            <img src="beautiful-old-city-view.jpg" height="64">
+            <img src="black-family-having-fun-beach.jpg" height="64">
+            <img src="vertical-shot-road-with-magnificent-mountains-blue-sky-captured-california.jpg" height="64">
+            <img src="young-couple-travelling-together.jpg" height="64">
+        </div>
+        <div>
+            <button id="LeftArrow">
+                <img src="LeftArrow.png" height="48">
+            </button>
+        </div>
+        <div>
+            <button id="RightArrow">
+                <img src="Arrow.png" height="48">
+            </button>
+        </div>
+    </div>
+    <div id="uploadFunctionality">
+        <input id="fileupload" type="file" name="fileupload" />
+        <button id="upload-button" onclick="uploadFile()"> Upload </button>
+
+        <script>
+            async function uploadFile() {
+                let formData = new FormData();
+                formData.append("data", fileupload.files[0]);
+                await fetch('http://localhost:8080/photos', {
+                    method: "POST",
+                    body: formData
+                }).then(result =>    result.text())
+                    .then(text => alert(text));
+            }
+        </script>
+    </div>
+</body>
+</html>
