@@ -4,43 +4,69 @@
     <meta charset="UTF-8">
     <title>DigitalScrapBook</title>
     <link rel="stylesheet" href="displayStyle.css">
+    <style>
+        .draggable-image {
+            cursor: move;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-    <div id="ScrapbookContainer">
-        <img id="Scrapbook" src="Scrapbook.png" height="512">
-        <div id="AssetsContainer">
-            <h3 id="AssetTitle"><b>Assets</b></h3>
-            <img src="beautiful-old-city-view.jpg" height="64">
-            <img src="black-family-having-fun-beach.jpg" height="64">
-            <img src="vertical-shot-road-with-magnificent-mountains-blue-sky-captured-california.jpg" height="64">
-            <img src="young-couple-travelling-together.jpg" height="64">
-        </div>
-        <div>
-            <button id="LeftArrow">
-                <img src="LeftArrow.png" height="48">
-            </button>
-        </div>
-        <div>
-            <button id="RightArrow">
-                <img src="Arrow.png" height="48">
-            </button>
-        </div>
-    </div>
-    <div id="uploadFunctionality">
-        <input id="fileupload" type="file" name="fileupload" />
-        <button id="upload-button" onclick="uploadFile()"> Upload </button>
+<div id="ScrapbookContainer" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <img id="Scrapbook" src="Scrapbook.png" height="512">
+</div>
+<div id="AssetsContainer">
+    <h3 id="AssetTitle"><b>Assets</b></h3>
+    <img src="beautiful-old-city-view.jpg" height="64" class="draggable-image" draggable="true" ondragstart="drag(event)">
+    <img src="black-family-having-fun-beach.jpg" height="64" class="draggable-image" draggable="true" ondragstart="drag(event)">
+    <img src="vertical-shot-road-with-magnificent-mountains-blue-sky-captured-california.jpg" height="64" class="draggable-image" draggable="true" ondragstart="drag(event)">
+    <img src="young-couple-travelling-together.jpg" height="64" class="draggable-image" draggable="true" ondragstart="drag(event)">
+</div>
+<div>
+    <button id="LeftArrow">
+        <img src="LeftArrow.png" height="48">
+    </button>
+</div>
+<div>
+    <button id="RightArrow">
+        <img src="Arrow.png" height="48">
+    </button>
+</div>
+<div id="uploadFunctionality">
+    <input id="fileupload" type="file" name="fileupload" />
+    <button id="upload-button" onclick="uploadFile()"> Upload </button>
+</div>
 
-        <script>
-            async function uploadFile() {
-                let formData = new FormData();
-                formData.append("data", fileupload.files[0]);
-                await fetch('http://localhost:8080/photos', {
-                    method: "POST",
-                    body: formData
-                }).then(result =>    result.text())
-                    .then(text => alert(text));
-            }
-        </script>
-    </div>
+<script>
+    async function uploadFile() {
+        let formData = new FormData();
+        formData.append("data", fileupload.files[0]);
+        await fetch('http://localhost:8080/photos', {
+            method: "POST",
+            body: formData
+        }).then(result => result.text())
+            .then(text => alert(text));
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.src);
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const imageUrl = event.dataTransfer.getData("text");
+        const imgElement = new Image();
+        imgElement.src = imageUrl;
+        imgElement.height = 64;
+        imgElement.classList.add('draggable-image');
+        imgElement.style.left = (event.clientX - 32) + 'px'; // Adjust for image width
+        imgElement.style.top = (event.clientY - 32) + 'px';  // Adjust for image height
+        document.getElementById('ScrapbookContainer').appendChild(imgElement);
+    }
+</script>
 </body>
 </html>
