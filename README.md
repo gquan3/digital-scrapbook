@@ -23,6 +23,7 @@ website deployment. <br><b>Note:</b> that this project was built in 2 days by 2 
 
 - [x] Front-end with assets box and scrapbook background to paste images onto
 - [ ] Good looking fully fledged front end.
+- [ ] Functional page turning.
 - [x] Image upload and pasteing functionality
 - [x] Minor glitches.
 - [ ] SQL Backed database for image storage
