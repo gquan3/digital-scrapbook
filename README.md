@@ -5,7 +5,8 @@
     <img src="https://img.youtube.com/vi/r-cD7W3lBcY/0.jpg" alt="Video Preview">
   </a>
 </p>
-<div align="center">:arrow_up: Scrapbook Demo Video (2 Minutes) :arrow_up:</div>
+<p align="center">:arrow_up: Scrapbook Demo Video (2 Minutes) :arrow_up:</p>
+<p align="center">Devpost submission page:<br> https://devpost.com/software/digital-scrapbook</p>
 
 <h2 align="center">Description</h3>
 <p><b>☑️ Submission:</b> This is our submission to the GTHacks 2023 Hackathon event; it was submitted in the 🖌️ <b>digital art</b> 🖌️ category.</p>
@@ -32,4 +33,4 @@ website deployment. <br><b>Note:</b> that this project was built in 2 days by 2 
 <h2 align="center">About us</h2>
 <p><b>🧑‍🎓 Xander Riddle:</b> Computer Science Student at Georgia Tech. Acted as Front End developer on this Project.</p>
 <p><b>🧑‍🎓 Adrian Kalisz:</b> Computer Science Student at Georgia Tech. Acted as Back End developer on this project.</p>
-<p align="center">We met at UGA during our very first hackathon UGA Hacks 2022 <i>(which we won 3rd in)</i> and both transfered to Georgia Tech to pursue our computer science degrees.</p>
+<p>We met at UGA during our very first hackathon UGA Hacks 2022 <i>(which we won 3rd in)</i> and both transfered to Georgia Tech to pursue our computer science degrees.</p>
