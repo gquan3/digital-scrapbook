@@ -21,6 +21,7 @@ website deployment. <br><b>Note:</b> that this project was built in 2 days by 2 
 <p align="center">Log of what we implemented and wanted to implement <i>(key: checked if successfully implemented)</i>.</p>
 
 - [x] Front-end with assets box and scrapbook background to paste images onto
+- [ ] Good looking fully fledged front end.
 - [x] Image upload and pasteing functionality
 - [x] Minor glitches.
 - [ ] SQL Backed database for image storage
