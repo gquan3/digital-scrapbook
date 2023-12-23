@@ -29,3 +29,7 @@ website deployment. <br><b>Note:</b> that this project was built in 2 days by 2 
 - [x] .Tech Domain aquisition
 - [x] Submitted project to GTHacks2023
 
+<h2 align="center">About us</h2>
+<p><b>🧑‍🎓 Xander Riddle:</b> Computer Science Student at Georgia Tech. Acted as Front End developer on this Project.</p>
+<p><b>🧑‍🎓 Adrian Kalisz:</b> Computer Science Student at Georgia Tech. Acted as Back End developer on this project.</p>
+<p align="center">We met at UGA during our very first hackathon UGA Hacks 2022 <i>(which we won 3rd in)</i> and both transfered to Georgia Tech to pursue our computer science degrees.</p>
